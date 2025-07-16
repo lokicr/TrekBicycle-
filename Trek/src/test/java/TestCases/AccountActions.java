@@ -1,5 +1,7 @@
 package TestCases;
 
+import PageObjectModel.HomePage;
+import PageObjectModel.NewCustomerPage;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
@@ -8,16 +10,21 @@ public class AccountActions extends BaseClass{
     @Test(enabled = true)
     public void newAccount()
     {
-        driver.findElement(By.xpath("//a[text()='New Customer']")).click();
-        driver.findElement(By.name("rad1")).click();
-        driver.findElement(By.id("dob")).sendKeys("07091999");
-        driver.findElement(By.name("addr")).sendKeys("Hosur");
-        driver.findElement(By.name("city")).sendKeys("Hosur");
-        driver.findElement(By.name("state")).sendKeys("tamilnadu");
-        driver.findElement(By.name("pinno")).sendKeys("635107");
-        driver.findElement(By.name("telephoneno")).sendKeys("123456789");
-        driver.findElement(By.name("emailid")).sendKeys("lokesgcr1999@gmail.com");
-        driver.findElement(By.name("sub")).click();
+
+        HomePage homePage=new HomePage(driver);
+        homePage.clickonNewCustomer();
+
+        NewCustomerPage newCustomerPage=  new NewCustomerPage(driver);
+        newCustomerPage.customerName("lokesh");
+        newCustomerPage.selectGender();
+        newCustomerPage.enterdob("07091999");
+        newCustomerPage.enterAddress("hosur");
+        newCustomerPage.enterCity("hosur");
+        newCustomerPage.enterState("tamilnadu");
+        newCustomerPage.enterPin("123456");
+        newCustomerPage.enterTelephone("1234567891");
+        newCustomerPage.enterEmail("lokeshcr1999@gmail.com");
+        newCustomerPage.clickSubmitButton();
 
     }
 
