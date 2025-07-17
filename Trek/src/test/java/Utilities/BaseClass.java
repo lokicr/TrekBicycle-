@@ -1,4 +1,4 @@
-package TestCases;
+package Utilities;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -6,7 +6,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.WebDriver;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
@@ -31,17 +30,11 @@ public class BaseClass {
 
     }
 
-
-
     @AfterClass
     public void teardown() {
 
         if (driver != null) {
-          //  driver.quit();
+            driver.quit();
         }
     }
-
-
-
-
 }

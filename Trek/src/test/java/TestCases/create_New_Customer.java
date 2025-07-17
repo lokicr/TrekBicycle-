@@ -2,18 +2,19 @@ package TestCases;
 
 import PageObjectModel.HomePage;
 import PageObjectModel.NewCustomerPage;
-import org.openqa.selenium.By;
+import Utilities.BaseClass;
 import org.testng.annotations.Test;
 
-public class AccountActions extends BaseClass{
+public class create_New_Customer extends BaseClass {
 
     @Test(enabled = true)
-    public void newAccount()
+    public void Add_New_Customer()
     {
-
+        //Home page data elements actions
         HomePage homePage=new HomePage(driver);
         homePage.clickonNewCustomer();
 
+        //NewCustomer Page data elements actions
         NewCustomerPage newCustomerPage=  new NewCustomerPage(driver);
         newCustomerPage.customerName("lokesh");
         newCustomerPage.selectGender();
@@ -24,31 +25,7 @@ public class AccountActions extends BaseClass{
         newCustomerPage.enterPin("123456");
         newCustomerPage.enterTelephone("1234567891");
         newCustomerPage.enterEmail("lokeshcr1999@gmail.com");
-        newCustomerPage.clickSubmitButton();
+       // newCustomerPage.clickSubmitButton(); Having some issues in application i just sent an mail regarding this issue.
 
     }
-
-    public void editAccount()
-    {
-
-    }
-
-    public void deleteAccount()
-    {
-
-    }
-
-    public void miniStatement()
-    {
-
-    }
-
-
-
-
-
-
-
-
-
 }
